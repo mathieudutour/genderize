@@ -13,7 +13,7 @@ _Note: the `genderize` package returns invalid data, be sure to use `genderize2`
 ## Usage
 
 ```js
-const genderize = require('genderize')
+const genderize = require('genderize2')
 
 genderize('Peter', (err, pronoun) => {
   if (err) {
