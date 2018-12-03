@@ -1,0 +1,235 @@
+<html lang="en">
+
+<head>
+  <title>Genderize - Determine a gender from a first name</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="Determine a gender from a first name" />
+  <!-- <meta name="image" content="https://rawcdn.githack.com/SaraVieira/uber-cities/3a8b69c4c8f8792e53584c73e005d4bec16c814b/src/assets/favicon.png" /> -->
+  <meta itemProp="name" content="Genderize" />
+  <meta itemProp="description" content="Determine a gender from a first name" />
+  <!-- <meta itemProp="image" content="https://rawcdn.githack.com/SaraVieira/uber-cities/3a8b69c4c8f8792e53584c73e005d4bec16c814b/src/assets/favicon.png" /> -->
+  <meta name="og:title" content="Genderize" />
+  <meta name="og:description" content="Determine a gender from a first name" />
+  <!-- <meta name="og:image" content="https://rawcdn.githack.com/SaraVieira/uber-cities/3a8b69c4c8f8792e53584c73e005d4bec16c814b/src/assets/favicon.png" /> -->
+  <meta name="og:url" content="https://genderize.now.sh" />
+  <meta name="og:site_name" content="Genderize" />
+  <meta name="og:type" content="website" />
+
+  <style>
+    body {
+      font-family: arial, sans-serif;
+      background: #4a0072;
+      font-weight: bold;
+      color: #fafafa;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 80px;
+      margin: 0;
+      margin-top: 40px;
+    }
+
+    input {
+      border: none;
+      border-bottom: 1px solid #fafafa;
+      background: transparent;
+      font-size: 80px;
+      color: #fafafa;
+      height: 80px;
+      width: 300px;
+      outline: none;
+      padding: 0 10px;
+    }
+
+    input:hover,
+    input:active {
+      outline: none;
+    }
+
+    form {
+      display: inline;
+    }
+
+    .wrapper {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    @media (max-width: 1030px) {
+      h1 {
+        font-size: 55px;
+      }
+      input {
+        font-size: 55px;
+        height: 55px;
+      }
+    }
+    @media (max-width: 435px) {
+      h1 {
+        font-size: 40px;
+      }
+      input {
+        font-size: 40px;
+        height: 40px;
+        margin-top: 20px;
+      }
+    }
+    @media (max-width: 767px) {
+      h1 {
+        font-size: 50px;
+        margin-top: 10px;
+      }
+    }
+    @media (max-width: 360px) {
+      .wrapper {
+        top: 50%;
+        position: relative;
+        transform: translateY(-50%);
+      }
+      h1 {
+        font-size: 30px;
+        margin-top: 10px;
+      }
+      input {
+        font-size: 30px;
+        height: 35px;
+        margin-top: 10px;
+      }
+    }
+    @media (max-height: 360px) {
+      h1 {
+        font-size: 30px;
+        padding-bottom: 80px;
+      }
+      input {
+        font-size: 30px;
+      }
+    }
+
+    @media (max-width: 767px) and (max-height: 400px) {
+      .wrapper {
+        flex-direction: row;
+      }
+    }
+
+    .lds-roller {
+      display: inline-block;
+      position: relative;
+      width: 64px;
+      height: 64px;
+    }
+    .lds-roller div {
+      animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      transform-origin: 32px 32px;
+    }
+    .lds-roller div:after {
+      content: " ";
+      display: block;
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fafafa;
+      margin: -3px 0 0 -3px;
+    }
+    .lds-roller div:nth-child(1) {
+      animation-delay: -0.036s;
+    }
+    .lds-roller div:nth-child(1):after {
+      top: 50px;
+      left: 50px;
+    }
+    .lds-roller div:nth-child(2) {
+      animation-delay: -0.072s;
+    }
+    .lds-roller div:nth-child(2):after {
+      top: 54px;
+      left: 45px;
+    }
+    .lds-roller div:nth-child(3) {
+      animation-delay: -0.108s;
+    }
+    .lds-roller div:nth-child(3):after {
+      top: 57px;
+      left: 39px;
+    }
+    .lds-roller div:nth-child(4) {
+      animation-delay: -0.144s;
+    }
+    .lds-roller div:nth-child(4):after {
+      top: 58px;
+      left: 32px;
+    }
+    .lds-roller div:nth-child(5) {
+      animation-delay: -0.18s;
+    }
+    .lds-roller div:nth-child(5):after {
+      top: 57px;
+      left: 25px;
+    }
+    .lds-roller div:nth-child(6) {
+      animation-delay: -0.216s;
+    }
+    .lds-roller div:nth-child(6):after {
+      top: 54px;
+      left: 19px;
+    }
+    .lds-roller div:nth-child(7) {
+      animation-delay: -0.252s;
+    }
+    .lds-roller div:nth-child(7):after {
+      top: 50px;
+      left: 14px;
+    }
+    .lds-roller div:nth-child(8) {
+      animation-delay: -0.288s;
+    }
+    .lds-roller div:nth-child(8):after {
+      top: 45px;
+      left: 10px;
+    }
+    @keyframes lds-roller {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body style="height:100%; overflow: auto;">
+  <div class="wrapper" id="wrapper">
+    <h1>
+      <label for="firstName">What is the pronoun to use for</label>
+      <form onsubmit="window.onSubmit(event)">
+        <input type="text" id="firstName" name="firstName" />
+      </form>
+      ?
+    </h1>
+  </div>
+
+  <script>
+    window.onSubmit = function (event) {
+      event.preventDefault()
+
+      var value = document.getElementById('firstName').value
+
+      var wrapper = document.getElementById('wrapper')
+
+      wrapper.innerHTML = "<div class=\"lds-roller\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><h4>Please wait til our machine learning algorithm find the answer</h4>"
+
+      setTimeout(function () {
+        wrapper.innerHTML = "<h2>The pronoun to use for " + value + " is</h2><h1>They</h1>"
+      }, 2500)
+    }
+  </script>
+</body>
+
+</html>
