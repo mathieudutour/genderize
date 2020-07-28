@@ -1,11 +1,8 @@
 {
   "name": "genderize2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Determine the pronoun to use for a first name",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "author": "Mathieu Dutour <mathieu@dutour.me>",
   "license": "MIT"
 }
